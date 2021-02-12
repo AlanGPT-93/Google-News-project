@@ -9,10 +9,11 @@ How to detect events or products using Google News
 
 import subprocess
 
-
+import os
+#os.chdir()
 ## Parametres
 
-search_topic = "phone"
+search_topic = "euro"
 execution_year = "2018"
 start_execution_month = "9"
 start_execution_day = "12"
@@ -29,6 +30,6 @@ subprocess.run(['sh','news_extractor.sh', search_topic,execution_year, start_exe
 
 
 ## Import Stop Words
-from nltk.corpus import stopwords
-sw_eng = stopwords.words('english') ## English Stop Words
-sw_esp = stopwords.words('spanish') ## Spanish Stop Words
+#from nltk.corpus import stopwords
+#sw_eng = stopwords.words('english') ## English Stop Words
+#sw_esp = stopwords.words('spanish') ## Spanish Stop Words
