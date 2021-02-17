@@ -3,6 +3,8 @@ Alan García
 
 How to detect events or products using Google News
 
+Please read me on https://argarcia1693.medium.com
+
 """
 
 ### Retrieving Google News
@@ -124,5 +126,5 @@ wordcloud = WordCloud(max_font_size = 200, max_words = 50).generate_from_frequen
 plt.imshow(wordcloud, interpolation = 'bilinear')
 plt.axis("off")
 plt.title("phone_en_S2", weight = 'bold', fontsize = 16, family = "Arial", style = 'italic')
-plt.savefig('IphoneXS.png',dpi = 300) ## Saving Word Clod with High Resolution
+plt.savefig('IphoneXS.png',dpi = 300) ## Saving Word Cloud with High Resolution
 plt.show()
