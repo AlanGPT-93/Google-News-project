@@ -94,8 +94,8 @@ tfidf_values = np.array([])
 tfidf_tokens = np.array([])
 
 
-for i, tf_idf_vector in  enumerate(tf_idf_matrix):
-    top_10_positions = np.argsort(-1*tf_idf_vector)[:10]
+for tf_idf_vector in  tf_idf_matrix:
+    top_10_positions = np.argsort(-1*tf_idf_vector)[:10] ## Top ten TF-IDF by news
     top_10_tfidf = tf_idf_vector[top_10_positions]
     _ = [np.where(tokens_position == tp )[0][0] for tp in top_10_positions]
     top_10_tokens = tokens[_] 
@@ -107,7 +107,7 @@ import pandas as pd
 
 most_relevant = pd.DataFrame({"tfidf_tokens":tfidf_tokens, "tfidf_values":tfidf_values} )
 most_relevant = most_relevant.groupby("tfidf_tokens").agg("sum" ).sort_values(by = "tfidf_values", ascending = False)
-most_relevant = most_relevant.head(70).reset_index()
+most_relevant = most_relevant.head(70).reset_index() ## The 70 most relevant terms
 most_relevant["Freq"] = np.floor(most_relevant["tfidf_values"]*10)
 most_relevant = most_relevant.iloc[:,[0,2] ]
 most_relevant["Freq"] = most_relevant["Freq"].astype(int)
@@ -124,5 +124,5 @@ wordcloud = WordCloud(max_font_size = 200, max_words = 50).generate_from_frequen
 plt.imshow(wordcloud, interpolation = 'bilinear')
 plt.axis("off")
 plt.title("phone_en_S2", weight = 'bold', fontsize = 16, family = "Arial", style = 'italic')
-plt.savefig('IphoneXS.png',dpi = 300) 
+plt.savefig('IphoneXS.png',dpi = 300) ## Saving Word Clod with High Resolution
 plt.show()
